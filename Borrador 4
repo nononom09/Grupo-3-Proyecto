@@ -495,4 +495,5 @@ if(e.key==='c') { state.category='Todas'; renderAll(); }
 
 </script>
 </body>
+
 </html>
