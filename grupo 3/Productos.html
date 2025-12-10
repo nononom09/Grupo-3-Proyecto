@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8 /">
+<meta name="viewport" content="width=device-width, initial-scale=1 /">
+
+
+<title>Pizza Shop — Productos </title>
+
+<style>
+
+:root {
+--bg:#ffffff;
+--card:#0b1220;
+--accent:#ff6b35;
+--muted:#9aa4b2;
+--glass: rgba(255,255,255,0.04);
+--radius:16px;
+--glass-2: rgba(255,255,255,0.03);
+}
+
+/* Reset */
+
+*
+{
+    box-sizing:border-box
+}
+
+body,html {
+    height:100%;margin:0;font-family:Inter,system-ui,system-ui,-apple-system,BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eef6;background:linear-gradient(180deg,#061021 0%, #071428 60%);
+}
+
+main {
+    display:grid;grid-template-columns:300px 1fr 380px;gap:22px;padding:20px 28px
+}
+
+header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 28px;
+    gap:12px
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:12px
+}
+
+.logo {
+    width:54px;
+    height:54px;
+    border-radius:12px;
+    background:linear-gradient(135180deg, #F57423, #ff7a1f);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 20px rgba(255,107,53,0.18);
+}
+
+.logo svg {
+    filter:drop-shadow(0 4px 14px rgba(255,107,53,0.25))
+}
+
+h1 {
+    margin:0;
+    font-size:20px
+}
+
+p.lead {
+    margin:0;
+    color:var(--muted);
+    font-size:13px
+}
+
+main {
+    display:grid;
+    grid-template-columns:300px 1fr 380px;
+    gap:22px;
+    padding:20px 28px
+}
+
+/* Categories */
+
+.categories,.cart {
+    background:#F57423;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 6px 30px rgba(2,6,23,.2);
+}
+
+.cart-list {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-height:420px;
+    overflow:auto
+}
+
+.cart-item {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--glass-2);
+    padding:10px;
+    border-radius:12px
+}
+
+.ci-img-real {
+    width:58px;
+    height:58px;
+    border-radius:10px;
+    object-fit:cover
+}
+
+.cat {
+    background:var(--glass);
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-bottom:10px
+}
+
+.cat:hover {
+    transform:translateX(6px);
+    background:linear-gradient(90deg, rgba(255,107,53,0.06), transparent)
+}
+
+.cat.active {
+    background:rgba(255,107,53,.15)
+}
+
+/* Search */
+
+.search-box {
+    margin-top:16px;
+    display:flex;
+    gap:8px
+}
+
+.search-box input {
+    flex:1;
+    padding:10px 12px;
+    border-radius:10px;
+    border:none;
+    background:var(--glass);
+    color:inherit
+}
+
+/* Product grid */
+
+.products-wrap {
+    background:transparent;
+    padding:6px 8px
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:20px
+}
+
+.card {
+    background:rgba(255,255,255,.03);
+    border-radius:16px;
+    padding:12px;
+    box-shadow:0 8px 30px rgba(2,6,23,.6)
+}
+
+.card .hero {
+    height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+
+.pizza-img-real {
+    width:100%;
+    height:150px;
+    border-radius:14px;
+    object-fit:cover;
+    box-shadow:0 8px 20px rgba(0,0,0,.4)
+}
+
+.card:hover .pizza-img-real {
+    transform:translateY(-8px) rotate(-6deg) scale(1.04)
+}
+
+.meta {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 6px
+}
+
+.meta h3 {
+    margin:0;
+    font-size:16px
+}
+
+.meta p {
+    margin:0;
+    color:var(--muted);
+    font-size:13px
+}
+
+.actions {
+    display:flex;
+    gap:10px;
+    align-items:center
+}
+
+.btn {
+    background:linear-gradient(90deg,var(--accent),#ff975f);
+    padding:8px 12px;
+    border-radius:10px;
+    border:none;
+    color:white;
+    cursor:pointer;
+    font-weight:700
+}
+
+.btn:active {
+    transform:scale(.98)
+}
+
+.ghost {
+    background:transparent;
+    border:1px solid rgba(255,255,255,.1);
+    padding:8px 10px;
+    border-radius:10px;
+    color:var(--muted);
+    cursor:pointer
+}
+
+/* Cart sidebar */
+
+.cart {
+    background:linear-gradient(180deg,#071428, #08182a);
+    border-radius:18px;
+    padding:16px;
+    position:relative;
+    min-height:240px;
+    box-shadow:0 10px 40px rgba(2,6,23,0.6)
+}
+
+.cart h2 {
+    margin:0 0 10px 0
+}
+
+.cart-list {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-height:420px;
+    overflow:auto;
+    padding-right:6px
+}
+
+.cart-item {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:10px;
+    background:var(--glass-2);
+    border-radius:12px
+}
+
+.ci-img {
+    width:56px;
+    height:56px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+
+.qty {
+    display:flex;
+    gap:6px;
+    align-items:center
+}
+
+.qty button {
+    width:28px;
+    height:28px;
+    border-radius:8px;
+    border:none;
+    background:rgba(255,255,255,0.03);
+    cursor:pointer
+}
+
+.remove {
+    background:transparent;
+    border:none;
+    color:#ff9b9b;
+    cursor:pointer
+}
+
+.checkout {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:12px
+}
+
+/* Small screens */
+@media (max-width:980px){
+main{grid-template-columns: 1fr;
+grid-template-rows:auto auto auto;
+padding:12px} .cart{order:3} .categories{order:1} .products-wrap{order:2}
+}
+
+/* Entry animations */
+
+.fade-in {
+    animation:fadeInUp .6s cubic-bezier(.2,.9,.3,1) both
+}
+
+@keyframes fadeInUp {
+    from{opacity:0;transform:translateY(18px)}to{opacity:1;
+    transform:none}
+}
+
+/* Stagger utility (applied via JS with inline style) */
+
+/* nice micro interactions */
+
+.pulse {
+    animation:pulse .9s ease both
+}
+
+@keyframes pulse {
+    0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}
+}
+
+/* Accessibility focus */
+
+.cat:focus, .btn:focus, .ghost:focus {
+    outline:2px solid rgba(255,107,53,0.18);
+    outline-offset:3px
+}
+
+/* Tiny badge */
+
+.cart-toggle {
+    position:relative
+}
+
+.badge {
+    position:absolute;
+    right:-6px;
+    top:-6px;
+    background:#ff6b35;
+    color:white;
+    padding:6px 8px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:12px
+}
+
+/* Empty state */
+
+.empty {
+    color:var(--muted);
+    text-align:center;
+    padding:36px
+}
+
+</style>
+
+</head>
+
+<header>
+<div class="brand">
+<div class="logo">
+<!-- pizza icon -->
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.97 3.66 9.09 8.47 9.88L12 22l1.53-.12C18.34 21.09 22 16.97 22 12c0-5.52-4.48-10-10-10z" fill="#fff" opacity="0.06"/><path d="M7.5 9a1 1 0 110 2 1 1 0 010-2zm6 3a1 1 0 110 2 1 1 0 010-2z" fill="#fff"/></svg>
+</div>
+
+<div>
+
+<h1>Pizza Shop</h1>
+<p class="lead">Pizzas artesanales — elige y pide en línea</p>
+</div>
+</div>
+
+<div style="display:flex;align-items:center;gap:12px">
+<div class="cart-toggle" aria-hidden="false">
+<button id="openCartBtn" class="btn" title="Abrir carrito">Abrir carrito</button>
+<div id="cartBadge" class="badge" style="display:none">0</div>
+</div>
+
+<button id="checkoutMock" class="ghost" title="Ir a checkout">Pagar</button>
+
+</div>
+</header>
+
+<main>
+<aside class="categories fade-in" aria-label="Categorias">
+
+<h2 style="margin-top:0">Categorías</h2>
+
+<div class="cats-list" id="cats"></div>
+
+<div class="search-box">
+
+<input id="search" placeholder="Buscar pizza..." aria-label="Buscar pizzas" />
+
+<button id="clearSearch" class="ghost">Borrar</button>
+
+</div>
+</aside>
+
+
+<section class="products-wrap fade-in" aria-live="polite">
+
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+
+<h2 style="margin:0">Nuestras pizzas</h2>
+
+<div style="color:var(--muted);font-size:13px">Selecciona para agregar al carrito</div>
+</div>
+
+<div id="grid" class="grid"></div>
+
+</section>
+
+
+<aside class="cart fade-in" aria-label="Carrito de compras">
+
+<h2>Carrito</h2>
+
+<div id="cartList" class="cart-list"></div>
+
+<div id="cartEmpty" class="empty" style="display:none">Tu carrito está vacío — agrega algun producto</div>
+
+<div class="checkout">
+
+<div>
+
+<div style="color:var(--muted);font-size:13px">Total</div>
+
+<div id="cartTotal" style="font-size:20px;font-weight:800">$0</div>
+
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+
+<button id="checkoutBtn" class="btn">Finalizar pedido</button>
+
+<button id="clearCart" class="ghost">Vaciar carrito</button>
+
+</div>
+
+</div>
+
+</aside>
+
+</main>
+
+<script>
+
+// ====== DATA ======
+
+const PRODUCTS = [
+{id:1,name:'Margherita',cat:'Clasicas',price:8.50,desc:'Tomate San Marzano, mozzarella, albahaca fresca',img:'M'},
+{id:2,name:'Pepperoni Deluxe',cat:'Carnes',price:10.50,desc:'Extra pepperoni, queso fundido',img:'P'},
+{id:3,name:'Hawaiana',cat:'Especiales',price:11.00,desc:'Jamón, piña caramelizada',img:'H'},
+{id:4,name:'Veggie Garden',cat:'Vegetarianas',price:9.75,desc:'Pimientos, champiñones, aceitunas',img:'V'},
+{id:5,name:'Cuatro Quesos',cat:'Clasicas',price:12.00,desc:'Mozzarella, gorgonzola, parmesano, ricotta',img:'4'},
+{id:6,name:'BBQ Chicken',cat:'Carnes',price:12.50,desc:'Pollo BBQ, cebolla morada, cilantro',img:'B'},
+{id:7,name:'Trufa Especial',cat:'Gourmet',price:15.00,desc:'Aceite de trufa, setas salteadas',img:'T'},
+{id:8,name:'Mexicana',cat:'Especiales',price:11.25,desc:'Chorizo, jalapeños, crema',img:'X'}
+];
+
+// ====== STATE ======
+<button class="remove" data-id="${it.id}">Eliminar</button>
+
+
+`;
+cartListEl.appendChild(el);
+});
+
+
+// attach controls
+cartListEl.querySelectorAll('.qty-inc').forEach(b=>b.addEventListener('click', e=>{ changeQty(e.currentTarget.dataset.id,1); playBeep({freq:880,vol:0.02}); }));
+cartListEl.querySelectorAll('.qty-dec').forEach(b=>b.addEventListener('click', e=>{ changeQty(e.currentTarget.dataset.id,-1); playBeep({freq:520,vol:0.02}); }));
+cartListEl.querySelectorAll('.remove').forEach(b=>b.addEventListener('click', e=>{ removeFromCart(e.currentTarget.dataset.id); }));
+
+
+cartBadge.textContent = cartCount();
+cartTotalEl.textContent = '$' + cartTotal().toFixed(2);
+}
+
+
+// small animation when cart changes
+const cartNode = document.querySelector('.cart'); if(cartNode){ cartNode.classList.remove('pulse'); void cartNode.offsetWidth; cartNode.classList.add('pulse'); }
+}
+
+
+// extra little badge animation
+function animateCartBadge(){ cartBadge.style.display='block'; cartBadge.style.transform='scale(0.8)'; setTimeout(()=>cartBadge.style.transform='scale(1)',120); cartBadge.textContent = cartCount(); }
+
+
+// ====== UI BINDINGS ======
+$('openCartBtn').addEventListener('click', ()=>{ document.querySelector('.cart').scrollIntoView({behavior:'smooth'}); playBeep({freq:900}); });
+$('clearCart').addEventListener('click', ()=>{ state.cart={}; saveCart(); renderCart(); playBeep({freq:260,duration:0.12}); });
+$('checkoutBtn').addEventListener('click', ()=>{ if(cartCount()===0){ alert('Tu carrito está vacío'); return;} playBeep({freq:1400,duration:0.14}); alert('Gracias por tu pedido! (simulado)'); state.cart={}; saveCart(); renderCart(); });
+$('checkoutMock').addEventListener('click', ()=>{ alert('Redirigiendo a pago... (demo)')});
+$('search').addEventListener('input', (e)=>{ state.query=e.target.value; renderAll(); });
+$('clearSearch').addEventListener('click', ()=>{ $('search').value=''; state.query=''; renderAll(); });
+
+
+// ====== BOOT ======
+function renderAll(){ renderCats(); renderProducts(); renderCart(); }
+// initial seed: animate badges correctly
+if(!localStorage.getItem('pizza_cart')) localStorage.setItem('pizza_cart', JSON.stringify(state.cart));
+renderAll();
+
+
+// allow audio to unlock on first user gesture
+['click','touchstart'].forEach(ev=> document.addEventListener(ev, function unlock(){ try{ audioCtx.resume(); }catch(e){} document.removeEventListener(ev, unlock); }));
+
+
+// keyboard accessibility: add keyboard handler for category buttons
+document.addEventListener('keydown', (e)=>{
+if(e.key==='c') { state.category='Todas'; renderAll(); }
+});
+
+
+</script>
+</body>
+</html>
