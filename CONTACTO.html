@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contactos — Little Ceaser</title>
+  <style>
+    :root{
+      --orange: #FF6A00;
+      --white: #ffffff;
+      --bg: linear-gradient(180deg, var(--white) 0%, #fffafa 100%);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      background: var(--bg);
+
+      color: #111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:100%;
+      max-width:920px;
+      background: var(--white);
+      border-radius:14px;
+      box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+      overflow:hidden;
+      display:flex;
+      flex-direction:row;
+    }
+    .aside{
+      flex:0 0 320px;
+      background: linear-gradient(180deg,var(--orange), #ff8a3d);
+      color:var(--white);
+      padding:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+    }
+    .logo{
+      font-weight:800;
+      font-size:28px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+    }
+    .tagline{opacity:0.95;font-weight:600}
+    .content{
+      flex:1;
+      padding:40px 36px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+    }
+    h1{margin:0;font-size:36px;color:#111}
+    p{margin:0;color:#333}
+    .btn{
+      display:inline-block;
+      background:transparent;
+      color:var(--orange);
+      border:2px solid var(--orange);
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      width:200px;
+      text-align:center;
+      transition:all .18s ease;
+    }
+    .btn:hover{background:var(--orange);color:var(--white);transform:translateY(-3px)}
+    .contact-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    .contact-item{padding:12px;border-radius:8px;background:#fff7ef;border:1px solid rgba(255,106,0,0.08);}
+    .small{font-size:14px;color:#666}
+    @media (max-width:720px){
+      .card{flex-direction:column}
+      .aside{flex:0 0 auto;padding:20px}
+      .content{padding:22px}
+      h1{font-size:28px}
+      .logo{font-size:22px}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <aside class="aside" aria-hidden="false">
+      <div>
+        <div class="logo">little ceaser</div>
+        <div class="tagline">Pizzería · República Dominicana</div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <header>
+        <h1>Contactos</h1>
+        <p class="small">¿Necesitas comunicarte con nosotros? Aquí tienes la información de contacto.</p>
+      </header>
+
+      <div class="contact-list" aria-label="Lista de contactos">
+        <div class="contact-item">
+          <strong>Teléfono:</strong> <span class="small">(809) 000-0000</span>
+        </div>
+        <div class="contact-item">
+          <strong>Correo:</strong> <span class="small">contacto@littleceaser.do</span>
+        </div>
+        <div class="contact-item">
+          <strong>Dirección:</strong> <span class="small">Av. Principal #123, Santo Domingo, RD</span>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <!-- El botón regresa a la página de inicio (index.html). Cambia el href si tu archivo de inicio tiene otro nombre. -->
+        <a class="btn" href="little (2).html" role="button">Volver a Inicio</a>
+
+        <!-- Botón alternativo para volver arriba si la web no tiene index.html -->
+        <a class="btn" href="#" onclick="history.back(); return false;" style="border-style:dashed;">Regresar</a>
+      </div>
+
+      <footer style="margin-top:14px"><p class="small">Diseñado con colores naranja y blanco para Little Ceaser.</p></footer>
+    </section>
+  </main>
+</body>
+</html>
