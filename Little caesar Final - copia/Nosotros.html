@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acerca de Nosotros - Little Caesar</title>
+  <style>
+    :root{
+      --orange: #ff6a00; /* naranja principal */
+      --white: #ffffff;
+      --dark: #222;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{margin:0;background:var(--white);color:var(--dark)}
+    .container{max-width:1000px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:76px;height:auto;border-radius:8px;background:linear-gradient(135deg, #fff5f0, #fff)}
+    h1{margin:0;font-size:28px;color:var(--orange)}
+    nav a{text-decoration:none;padding:8px 14px;border-radius:8px;background:var(--orange);color:var(--white);font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, #fff, #fffefc);padding:20px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .history h2{color:var(--orange);margin-top:0}
+    .history p{line-height:1.6;color:#333}
+
+    .right{display:flex;flex-direction:column;gap:12px}
+    .cta{padding:12px 14px;border-radius:10px;text-align:center;font-weight:700}
+    .cta.primary{background:var(--orange);color:var(--white)}
+    .cta.ghost{background:transparent;border:2px solid var(--orange);color:var(--orange)}
+
+    footer{margin-top:36px;padding-top:16px;border-top:1px solid #f0f0f0;color:#666;font-size:13px}
+
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .logo{width:64px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- Sustituye 'little-caesars-logo.png' por tu archivo de logo real -->
+        <img class="logo" src="logo.jpg" alt="Logo Little Caesars" />
+        <div>
+          <h1>Little Caesars - República Dominicana</h1>
+          <div style="font-size:13px;color:#666">Pizza • Calidad • Rapidez</div>
+        </div>
+      </div>
+      <nav>
+        <a href="little (2).html">Volver a inicio</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="card history">
+        <h2>Nuestra Historia</h2>
+        <p>
+          Little Caesars fue fundada en 1959 por Mike Ilitch y Marian Ilitch en Garden City, Michigan (Estados Unidos).
+          Comenzó como una pequeña pizzería familiar y se convirtió rápidamente en una de las cadenas de pizzerías más grandes del mundo.
+        </p>
+        <p>
+          A lo largo de las décadas, Little Caesars se destacó por ofrecer pizza de buena calidad a precios accesibles y por sus ideas innovadoras de venta, como el concepto "Hot-N-Ready" que permite a los clientes comprar pizzas listas sin esperar.
+          Su famoso lema publicitario en algunos países —"Pizza! Pizza!"— ayudó a posicionar la marca a nivel internacional.
+        </p>
+        <p>
+          En República Dominicana, Little Caesars trae esa tradición combinada con sabores que gustan al público local, atención rápida y un ambiente casual para familias y jóvenes.
+          Nuestra misión es ofrecer pizzas sabrosas, productos consistentes y un servicio rápido a todos nuestros clientes.
+        </p>
+
+        <h3 style="margin-top:18px;color:#444">Valores</h3>
+        <ul>
+          <li>Calidad en cada porción</li>
+          <li>Rapidez y conveniencia</li>
+          <li>Atención cordial</li>
+          <li>Buena relación precio/valor</li>
+        </ul>
+
+        <h3 style="margin-top:18px;color:#444">Visión</h3>
+        <p>Ser la primera opción de pizza rápida y accesible en cada comunidad donde operamos.</p>
+      </section>
+
+      <aside class="right">
+        <div class="card" style="text-align:center">
+
+            <img src="cisar.jpg">
+          <br>
+          <p style="margin-bottom:12px">Encuentra nuestras sucursales, promociones y horarios en la página principal.</p>
+          <br>
+          <a class="cta primary" href="little (2).html">Ir a Inicio</a>
+          <a class="cta ghost" href="#contacto">Contáctanos</a>
+        </div>
+
+        <div class="card" id="contacto">
+          <h4 style="margin:6px 0">Contacto</h4>
+          <p style="margin:6px 0">Tel: +1 (809) 000-0000</p>
+          <p style="margin:6px 0">Email: info@littlecaesars.do</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Little Caesars — Todos los derechos reservados.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
